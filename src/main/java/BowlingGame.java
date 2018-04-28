@@ -20,13 +20,13 @@ public class BowlingGame {
         this.nbMaxSets = nbMaxSets;
     }
 
-    public int getSomme()
+    public int getSum()
     {
         if (scores == null)
             throw new IllegalArgumentException("The parameter SCORES is null.");
 
-        boolean isStrike = false;
-        boolean isSpare = false;
+        boolean isStrike;
+        boolean isSpare;
 
         int somme = 0;
         for (int i = 0; i < scores.size(); ++i)
