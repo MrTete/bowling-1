@@ -14,7 +14,12 @@ public class BowlingGame {
         scores = new ArrayList<>(this.nbMaxSets);
     }
 
-    public BowlingGame(List<Pair<Integer,Integer>> score, int nbMaxSets)
+    @Override
+	public String toString() {
+		return "" + scores + " " + this.getSum();
+	}
+
+	public BowlingGame(List<Pair<Integer,Integer>> score, int nbMaxSets)
     {
         scores = score;
         this.nbMaxSets = nbMaxSets;
@@ -96,10 +101,36 @@ public class BowlingGame {
             else
                 return false;
         }
-        else if (scores.size() > nbMaxSets + 2)
+        else if (scores.size() >= nbMaxSets + 2)
             return false;
 
         scores.add(score);
+        return true;
+    }
+    
+    public boolean canPlay() {
+    	
+    	if (scores.size() == nbMaxSets)
+        {
+    		Pair<Integer, Integer> last = scores.get(scores.size()-1);
+            if (isStrike(last))
+                return true;
+            else if (isSpare(last))
+               return true;
+
+            return false;
+        }
+        else if (scores.size() == nbMaxSets + 1)
+        {
+        	Pair<Integer, Integer> last = scores.get(scores.size()-1);
+            if (isStrike(last))
+                return true;
+            else
+                return false;
+        }
+        else if (scores.size() >= nbMaxSets + 2)
+            return false;
+
         return true;
     }
 

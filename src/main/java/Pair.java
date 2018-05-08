@@ -19,4 +19,9 @@ public class Pair<K, V> {
     public V getItem2() {
         return item2;
     }
+
+	@Override
+	public String toString() {
+		return "<" + item1 + "," + item2 + ">";
+	}
 }

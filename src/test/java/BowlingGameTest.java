@@ -191,7 +191,7 @@ public class BowlingGameTest {
         assertTrue(bowlingGame.addScore(new Pair<>(10, 0)));
         assertTrue(bowlingGame.addScore(new Pair<>(10, 0)));
         assertTrue(bowlingGame.addScore(new Pair<>(10, 0)));
-
+        assertFalse(bowlingGame.addScore(new Pair<>(10, 0)));
         assertEquals(300, bowlingGame.getSum());
     }
 
